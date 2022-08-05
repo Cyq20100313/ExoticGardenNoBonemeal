@@ -27,4 +27,4 @@ jobs:
         run: mvn package --file pom.xml
       - uses: actions/upload-artifact@v3
         with:
-          path: target/ExoticGarden_UNOFFICAL
+          path: target/ExoticGarden_UNOFFICIAL.jar
