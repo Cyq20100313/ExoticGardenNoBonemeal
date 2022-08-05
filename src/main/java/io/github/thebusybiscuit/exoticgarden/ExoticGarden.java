@@ -440,20 +440,20 @@ public class ExoticGarden extends JavaPlugin implements SlimefunAddon {
                     case DOUBLE_PLANT:
                         Block plant = block;
 
-                        if (Tag.LEAVES.isTagged(block.getType())) {
-                            block = plant.getRelative(BlockFace.UP);
-                        } else {
-                            plant = block.getRelative(BlockFace.DOWN);
+                        if (Tag.LEAVES.isTagged(block.getType())) { #click down side
+                            block = plant.getRelative(BlockFace.UP); #block up side
+                        } else { #click up side
+                            plant = block.getRelative(BlockFace.DOWN); #plant down side
                         }
 
-                        BlockStorage.deleteLocationInfoUnsafely(block.getLocation(), false);
-                        block.getWorld().playEffect(block.getLocation(), Effect.STEP_SOUND, Material.OAK_LEAVES);
-                        block.setType(Material.AIR, false);
+                        BlockStorage.deleteLocationInfoUnsafely(block.getLocation(), false); # clear slimefun tags up side(fruit)
+                        block.getWorld().playEffect(block.getLocation(), Effect.STEP_SOUND, Material.OAK_LEAVES); #play oak_leaves breaking sound
+                        block.setType(Material.AIR, false); # replace to air
 
-                        plant.setType(Material.OAK_SAPLING, false);
-                        BlockStorage.deleteLocationInfoUnsafely(plant.getLocation(), false);
-                        BlockStorage.store(plant, getItem(berry.toBush()));
-                        return berry.getItem().clone();
+                        plant.setType(Material.OAK_SAPLING, false); # set to sapling(PLANT)
+                        BlockStorage.deleteLocationInfoUnsafely(plant.getLocation(), false); # clear slimefun tags down side(plant)
+                        BlockStorage.store(plant, getItem(berry.toBush())); # store slimefun tags from berry_BUSH
+                        return berry.getItem().clone(); # return berry cloned
                     default:
                         block.setType(Material.OAK_SAPLING, false);
                         BlockStorage.deleteLocationInfoUnsafely(block.getLocation(), false);
