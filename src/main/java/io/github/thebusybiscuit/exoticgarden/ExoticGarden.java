@@ -441,9 +441,8 @@ public class ExoticGarden extends JavaPlugin implements SlimefunAddon {
                         Block plant = block;
 
                         if (Tag.LEAVES.isTagged(block.getType())) {
-                            block = plant;
+                            plant = block.getRelative(BlockFace.DOWN);
                         } else {
-                            plant = block;
                         }
 
                         BlockStorage.deleteLocationInfoUnsafely(block.getLocation(), false);
