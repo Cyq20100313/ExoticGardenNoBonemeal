@@ -395,8 +395,8 @@ public class ExoticGarden extends JavaPlugin implements SlimefunAddon {
         String upperCase = id.toUpperCase(Locale.ROOT);
         String enumStyle = upperCase.replace(' ', '_');
 
-        if(type == DOUBLE_PLANT){
-            type = BUSH;
+        if(type == PlantType.DOUBLE_PLANT){
+            type = PlantType.BUSH;
         }
 
         Berry berry = new Berry(enumStyle, type, texture);
