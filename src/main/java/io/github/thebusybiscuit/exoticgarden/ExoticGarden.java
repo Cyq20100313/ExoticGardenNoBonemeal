@@ -444,7 +444,7 @@ public class ExoticGarden extends JavaPlugin implements SlimefunAddon {
                     case DOUBLE_PLANT:
                         Block plant = block;
 
-                        getLogger().log("test");
+                        getLogger().log(Level.INFO, "test")
 
                         if (Tag.LEAVES.isTagged(block.getType())) { // click down side
                             block = plant.getRelative(BlockFace.UP); // block up side
